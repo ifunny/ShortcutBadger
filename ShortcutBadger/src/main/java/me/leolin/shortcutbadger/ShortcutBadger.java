@@ -30,7 +30,7 @@ public final class ShortcutBadger {
         BADGERS.add(NovaHomeBadger.class);
         BADGERS.add(SolidHomeBadger.class);
         BADGERS.add(SonyHomeBadger.class);
-        BADGERS.add(XiaomiHomeBadger.class);
+//        BADGERS.add(XiaomiHomeBadger.class);
         BADGERS.add(AsusHomeLauncher.class);
         BADGERS.add(LGHomeBadger.class);
         BADGERS.add(SamsungHomeBadger.class);
