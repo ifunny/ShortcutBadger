@@ -1,9 +1,12 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.github.ifunny'
 
 android {
 
-	compileSdkVersion rootProject.ext.compileSdkVersion
-	buildToolsVersion rootProject.ext.buildToolsVersion
+	compileSdkVersion 23
+	buildToolsVersion '24.0.1'
 
 	compileOptions {
 		sourceCompatibility JavaVersion.VERSION_1_7
@@ -12,7 +15,7 @@ android {
 
 	defaultConfig {
 		minSdkVersion 8
-		targetSdkVersion rootProject.ext.compileSdkVersion
+		targetSdkVersion 23
 		versionCode 1
 		versionName "1.0"
 		consumerProguardFiles 'proguard-rules.pro'
