@@ -10,11 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import me.leolin.shortcutbadger.ShortcutBadger;
-import me.leolin.shortcutbadger.impl.ApexHomeBadger;
 
 
 public class MainActivity extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,24 @@ public class MainActivity extends Activity {
                 boolean success = ShortcutBadger.applyCount(MainActivity.this, badgeCount);
 
                 Toast.makeText(getApplicationContext(), "Set count=" + badgeCount + ", success=" + success, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Button launchNotification = (Button) findViewById(R.id.btnSetBadgeByNotification);
+        launchNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int badgeCount = 0;
+                try {
+                    badgeCount = Integer.parseInt(numInput.getText().toString());
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getApplicationContext(), "Error input", Toast.LENGTH_SHORT).show();
+                }
+
+                finish();
+                startService(
+                    new Intent(MainActivity.this, BadgeIntentService.class).putExtra("badgeCount", badgeCount)
+                );
             }
         });
 
